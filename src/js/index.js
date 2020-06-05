@@ -1,60 +1,106 @@
-import * as THREE from '../../lib/js/three/three.module.js';
+import * as THREE from '../../lib/js/three/build/three.module.js';
 
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 500);
-camera.position.set(0, 0, 7);
-camera.lookAt(0, 0, 0);
+import * as OrbitControls from '../../lib/js/three/examples/js/controls/OrbitControls.js';
+import * as GLTFLoader from '../../lib/js/three/examples/js/loaders/GLTFLoader.js';
+import * as RGBELoader from '../../lib/js/three/examples/js/loaders/RGBELoader.js';
+import { RoughnessMipmapper } from '../../lib/js/three/examples/jsm/utils/RoughnessMipmapper.js'
 
-var scene = new THREE.Scene();
+var container, controls;
+var camera, scene, renderer;
 
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+init();
+render();
 
-var geometry = new THREE.BoxGeometry();
-var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-var cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+function init() {
 
-var material = new THREE.LineBasicMaterial({ color: 0x0000ff });
-var points = [];
-points.push(new THREE.Vector3(- 10, 0, 0));
-points.push(new THREE.Vector3(0, 10, 0));
-points.push(new THREE.Vector3(10, 0, 0));
+  container = document.createElement('div');
+  document.body.appendChild(container);
 
-var geometry = new THREE.BufferGeometry().setFromPoints(points);
-var line = new THREE.Line(geometry, material);
+  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.25, 20);
+  camera.position.set(- 1.8, 0.6, 2.7);
 
-scene.add(line)
+  scene = new THREE.Scene();
 
+  new RGBELoader()
+    .setDataType(THREE.UnsignedByteType)
+    .setPath('textures/equirectangular/')
+    .load('royal_esplanade_1k.hdr', function (texture) {
 
+      var envMap = pmremGenerator.fromEquirectangular(texture).texture;
 
+      scene.background = envMap;
+      scene.environment = envMap;
 
+      texture.dispose();
+      pmremGenerator.dispose();
 
+      render();
 
+      // model
 
-var loader = new THREE.GLTFLoader();
+      // use of RoughnessMipmapper is optional
+      var roughnessMipmapper = new RoughnessMipmapper(renderer);
 
-loader.load('path/to/model.glb', function (gltf) {
+      var loader = new GLTFLoader().setPath('models/gltf/DamagedHelmet/glTF/');
+      loader.load('DamagedHelmet.gltf', function (gltf) {
 
-  scene.add(gltf.scene);
+        gltf.scene.traverse(function (child) {
 
-}, undefined, function (error) {
+          if (child.isMesh) {
 
-  console.error(error);
+            roughnessMipmapper.generateMipmaps(child.material);
 
-});
+          }
 
+        });
 
+        scene.add(gltf.scene);
 
+        roughnessMipmapper.dispose();
 
+        render();
 
+      });
 
+    });
 
-function animate() {
-  requestAnimationFrame(animate);
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-  renderer.render(scene, camera);
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.8;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  container.appendChild(renderer.domElement);
+
+  var pmremGenerator = new THREE.PMREMGenerator(renderer);
+  pmremGenerator.compileEquirectangularShader();
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.addEventListener('change', render); // use if there is no animation loop
+  controls.minDistance = 2;
+  controls.maxDistance = 10;
+  controls.target.set(0, 0, - 0.2);
+  controls.update();
+
+  window.addEventListener('resize', onWindowResize, false);
+
 }
-animate();
+
+function onWindowResize() {
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  render();
+
+}
+
+//
+
+function render() {
+
+  renderer.render(scene, camera);
+
+}
