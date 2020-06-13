@@ -17,13 +17,53 @@ npm install
 npm start
 ```
 
+This will start Gatsby in development mode and code changes made will be automatically refelected.
+
+## Building
+
+To run a static production build of the site simply run:
+
+```bash
+npm run build
+```
+
+This will spit out a `/public` folder in the root of the project with a static version of the site in.
+
+This folder can be uploaded to a hosting provider or fire up a local server to preview the build like this:
+
+```bash
+npm run serve
+```
+
+## Tooling
+
+We are using various peices of tooling to keep code consistency. Including:
+
+- [Prettier](https://prettier.io/) - To keep coding conventions enforced.
+- [ESLint](https://eslint.org/) - Catch common coding errors.
+- [import-sort](https://github.com/renke/import-sort) - To keep module import order consistent.
+
+You can run all the linting steps in one command:
+
+```bash
+npm run lint
+```
+
+or granularly:
+
+```bash
+npm run lint:format
+```
+
+You can also let the system try and automatically fix the errors in this tool chain:
+
+```bash
+npm run fix
+```
+
 ## Planning
 
-- [x] Pillar 0 - [x] Placeholder page
-- [ ] Pillar I
-  - [ ] Average WebGL **Home** Page
-  - [ ] Team Page
-  - [ ] Legal Page
+Please visit the [Issues](https://github.com/Nexus-Aurora/web-portal/issues) and [Milestones](https://github.com/Nexus-Aurora/web-portal/projects) to see where you can contribute.
 
 ## Contribution
 
@@ -39,37 +79,17 @@ Anyone is permitted to contribute! Make sure to remember that this is CCv4.0 lic
 
 ## Directories
 
-### `/assets`
+### .circleci
 
-For all assets.
+Contains the config files for CircleCi, do not touch unless you are an administrator and know what you're doing.
 
-#### `/assets/audio`
+### data
 
-Audio is located here.
+Read [this Gatsby article](https://www.gatsbyjs.org/tutorial/part-four/) for more information.
 
-#### `/assets/fonts`
+### src
 
-Find the best fonts in the world here!
-
-#### `/assets/img`
-
-Images are found in this directory.
-
-### `/favicons`
-
-Favicons are stored here.
-
-### `/lib`
-
-Find libraries (dependencies) unpacked over in this directory.
-
-### `/pages`
-
-Extra pages are found here.
-
-### `/src`
-
-Find all the source files here, CSS or JS.
+This is where the fun begins. In here, find five different directories, each with it's own purpose. Read the Gatsby documentation for more.
 
 ## Where can I get in on the fun?
 
