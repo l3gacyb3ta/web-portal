@@ -1,0 +1,33 @@
+{
+  "name": "footer",
+  "people": [
+    { "name": "NLDukey" },
+    { "name": "Vikas" },
+    { "name": "Koenikova" },
+    { "name": "KimVD" },
+    { "name": "Jakob Berg" },
+    { "name": "Felix" },
+    { "name": "EliTheDude" },
+    { "name": "MaNaeSWolf" },
+    { "name": "Mitch" },
+    { "name": "Mae Elizabeth" },
+    { "name": "Bobbbay" },
+    { "name": "Digital" },
+    { "name": "Calvin" }
+  ],
+  "founders": [{ "name": "Visual School" }, { "name": "MarsOrBust" }],
+  "social": [
+    { "title": "Facebook", "href": "/facebook" },
+    { "title": "Instagram", "href": "/instagram" },
+    { "title": "Reddit", "href": "/reddit" },
+    { "title": "LinkedIn", "href": "/linkedin" },
+    { "title": "Twitter", "href": "/twitter" },
+    { "title": "YouTube", "href": "/youtube" }
+  ],
+  "legal": [
+    { "title": "Terms & Conditions", "href": "/terms" },
+    { "title": "Disclaimer", "href": "/disclaimer" },
+    { "title": "Cookie Policy", "href": "/cookie" },
+    { "title": "Privacy Policy", "href": "/privacy" }
+  ]
+}

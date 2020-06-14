@@ -2,25 +2,19 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import icons from "../base/icons";
-import { ExternalLink, InternalLink, LinkItem, Title, Wrapper } from "./styles";
+import { Link, LinkItem, SubTitle, Title, Wrapper } from "./styles";
 
 const LinkBar = ({ links }) => (
   <Wrapper>
-    {links.map(({ href, title, external, icon }) => {
+    {links.map(({ href, title, subTitle, icon }) => {
       const Icon = icons[icon];
       return (
         <LinkItem key={href}>
-          {external ? (
-            <ExternalLink href={href} target="_blank">
-              {Icon && <Icon />}
-              <Title>{title}</Title>
-            </ExternalLink>
-          ) : (
-            <InternalLink to={href}>
-              {Icon && <Icon />}
-              <Title>{title}</Title>
-            </InternalLink>
-          )}
+          <Link link={href}>
+            {Icon && <Icon />}
+            <Title>{title}</Title>
+          </Link>
+          {subTitle && <SubTitle>{subTitle}</SubTitle>}
         </LinkItem>
       );
     })}
@@ -32,8 +26,8 @@ LinkBar.propTypes = {
     PropTypes.shape({
       href: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      subTitle: PropTypes.string,
       icon: PropTypes.oneOf(Object.keys(icons)),
-      external: PropTypes.bool,
     })
   ).isRequired,
 };

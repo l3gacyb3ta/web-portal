@@ -1,0 +1,11 @@
+{
+  "name": "nav",
+  "links": [
+    { "title": "Home", "href": "/" },
+    { "title": "Get an Assignment", "href": "/assignment" },
+    { "title": "Projects", "href": "/projects" },
+    { "title": "Exents", "href": "/events" },
+    { "title": "Docs", "href": "/docs" },
+    { "title": "Join Us", "href": "/join", "feature": true }
+  ]
+}

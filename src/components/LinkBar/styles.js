@@ -1,8 +1,7 @@
-import { Link } from "gatsby";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { base } from "../base/type";
+import LinkComponent from "../Link";
 
 export const Wrapper = styled.ul`
   display: flex;
@@ -17,7 +16,7 @@ export const LinkItem = styled.li`
   margin-bottom: 32px;
 `;
 
-export const LinkBase = css`
+export const Link = styled(LinkComponent)`
   ${base}
 
   display: flex;
@@ -28,14 +27,10 @@ export const LinkBase = css`
   text-transform: uppercase;
 `;
 
-export const ExternalLink = styled(OutboundLink)`
-  ${LinkBase}
-`;
-
-export const InternalLink = styled(Link)`
-  ${LinkBase}
-`;
-
 export const Title = styled.span`
+  margin: 0 4px;
+`;
+
+export const SubTitle = styled.span`
   margin: 0 4px;
 `;

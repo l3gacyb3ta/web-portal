@@ -1,0 +1,114 @@
+{
+  "name": "home",
+  "intro": {
+    "title": "Open Source Mars Colony",
+    "subTitle": "Crowd Sourced City Plans for 1 Million inhabitants on Mars",
+    "links": [
+      {
+        "href": "/discord",
+        "title": "Join the Team",
+        "subTitle": "Engineers, Artists, Programmers"
+      },
+      {
+        "href": "/vr",
+        "title": "VR Trailer",
+        "subTitle": "Extreme Engineering & Relaism"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "type": "colonisation",
+      "header": {
+        "title": "Space Colonisation",
+        "subTitle": "Mars Colonisation Plans Developed by An International Team of Volunteers",
+        "copy": "Experts from major industries such as aerospace, architecture, logistics and education have kickstarted 50+ active projects."
+      }
+    },
+    {
+      "type": "projects",
+      "stats": [
+        { "key": "Projects", "value": "50+" },
+        { "key": "Domains", "value": "18" },
+        { "key": "Total Followers", "value": "3K" }
+      ],
+      "links": [
+        {
+          "href": "/projects",
+          "title": "Projects Catalog",
+          "subTitle": "Explore All 50+ Projects"
+        },
+        {
+          "href": "/vr",
+          "title": "VR Colony",
+          "subTitle": "Develop & Test out VR Demo"
+        }
+      ]
+    },
+    {
+      "type": "volunteer",
+      "header": {
+        "title": "Passionate Volunteers",
+        "subTitle": "Top of The Line Talent, Extremely Passionate About Space Exploration",
+        "copy": "More than half of the volunteers are trained engineers or students in engineering. We take great Pride in our work and we have spend countless hours improving designs."
+      },
+      "stats": [
+        { "key": "Active Volunteers", "value": "130" },
+        { "key": "Countries", "value": "50+" },
+        { "key": "Project Files", "value": "12Gb" }
+      ],
+      "links": [
+        {
+          "href": "/projects",
+          "title": "Projects Roadmap",
+          "subTitle": "Pick and Open Assignment"
+        },
+        {
+          "href": "/people",
+          "title": "Top Creators",
+          "subTitle": "Without them NA Stops"
+        },
+        {
+          "href": "/discord",
+          "title": "Join Discord",
+          "subTitle": "Join the Design Team"
+        }
+      ]
+    },
+    {
+      "type": "discord",
+      "header": {
+        "title": "Join us on Discord",
+        "subTitle": "Finishing an Assignment Will Get You Verified Status and Open Access",
+        "copy": "If you want to join the active contributors you will have to first finish an assignment. Ask for an assignment in the lounge chats or simply pick one yourself from the Master Roadmap."
+      },
+      "links": [
+        {
+          "href": "/reddit",
+          "title": "Follow Reddit",
+          "subTitle": "You can follow us on Reddit"
+        },
+        {
+          "href": "/discord",
+          "title": "Join Discord",
+          "subTitle": "Join the Design Team"
+        }
+      ]
+    },
+    {
+      "type": "vr",
+      "header": {
+        "title": "VR Demo",
+        "subTitle": "Experience Life On Mars Before You Buy That Starship Ticket!",
+        "copy": "We have a goal of merging 2 of the most exciting things on the web today. VR and SPace Exploration, and to overlay a layer of educational information on top of it."
+      },
+      "links": [
+        {
+          "href": "/vr",
+          "title": "Visit GitHub",
+          "subTitle": "Artists & Programmers are Needed"
+        }
+      ]
+    }
+  ]
+}
