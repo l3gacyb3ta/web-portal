@@ -20,7 +20,7 @@ jobs:
           command: ls public/
       - run:
           name: rsync To VPS
-          command: rsync
+          command: rsync -avce ssh public/ root@nexusaurora.com::/var/www/development.nexusaurora.com/
 
 workflows:
   version: 2.1
