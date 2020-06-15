@@ -25,9 +25,6 @@ jobs:
       - run:
           name: Add SSH Key to known host file
           command: echo $REMOTE_HOSTKEY >> ~/.ssh/known_hosts
-      - run: 
-          name: dir list
-          command: ls ~/.ssh/known_hosts/
       - run:
           name: rsync To VPS
           command: rsync -avce ssh $BUILD_DIR root@nexusaurora.com:/var/www/development.nexusaurora.com/
