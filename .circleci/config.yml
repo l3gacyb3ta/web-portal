@@ -5,8 +5,6 @@ jobs:
       - image: circleci/node:12
     steps:
       - checkout
-      - attach_workspace:
-        at: public
       - add_ssh_keys
       - run:
           name: Install Rsync
