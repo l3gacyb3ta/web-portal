@@ -1,10 +1,16 @@
-version: 2
+version: 2.1
 jobs:
-  test:
+  test_and_deploy:
     docker:
       - image: circleci/node:12
     steps:
       - checkout
+      - attach_workspace:
+        at: public
+      - add_ssh_keys
+      - run:
+          name: Install Rsync
+          command: sudo apt-get update && sudo apt-get install rsync
       - run:
           name: Install dependencies
           command: npm ci
@@ -14,9 +20,16 @@ jobs:
       - run:
           name: Testing
           command: npm run test
+      - run: 
+          name: Building
+          command: npm run build
+      - run: 
+          name: dir list
+          command: ls /public
 
 workflows:
-  version: 2
+  version: 2.1
   test_and_build:
     jobs:
-      - test
+      - test_and_deploy
+      
