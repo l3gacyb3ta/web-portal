@@ -3,6 +3,8 @@ jobs:
   test_and_deploy:
     docker:
       - image: circleci/node:12
+    environment:
+      BUILD_DIR: public/
     steps:
       - checkout
       - add_ssh_keys
@@ -17,10 +19,10 @@ jobs:
           command: npm run build
       - run: 
           name: dir list
-          command: ls public/
+          command: ls $BUILD_DIR
       - run:
           name: rsync To VPS
-          command: rsync -avce ssh public/ root@nexusaurora.com::/var/www/development.nexusaurora.com/
+          command: rsync -avce ssh $BUILD_DIR root@nexusaurora.com:/var/www/development.nexusaurora.com/
 
 workflows:
   version: 2.1
