@@ -7,7 +7,9 @@ jobs:
       BUILD_DIR: public/
     steps:
       - checkout
-      - add_ssh_keys
+      - add_ssh_keys:
+          fingerprints:
+            - "57:e6:e6:8d:f3:0d:1c:d8:19:c8:e0:43:fe:fe:27:09"
       - run:
           name: Install Rsync
           command: sudo apt-get update && sudo apt-get install rsync
@@ -25,7 +27,7 @@ jobs:
           command: echo $REMOTE_HOSTKEY >> ~/.ssh/known_hosts
       - run: 
           name: dir list
-          command: ls ~/.ssh/known_hosts
+          command: ls ~/.ssh/known_hosts/
       - run:
           name: rsync To VPS
           command: rsync -avce ssh $BUILD_DIR root@nexusaurora.com:/var/www/development.nexusaurora.com/
