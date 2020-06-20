@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+//import logo from "./logo.png";
 
 import { Link, LinkItem, Links, Logo, Wrapper } from "./styles";
 
