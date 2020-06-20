@@ -18,12 +18,13 @@ export const LinkItem = styled.li`
 
 export const Link = styled(LinkComponent)`
   ${base}
-
   display: flex;
-  border: 2px solid white;
-  border-radius: 4px;
-  padding: 4px;
+  border-radius: 25px;
+  padding: 7px;
+  justify-content: center;
+  align-items: center;
   color: white;
+  background-color: #f00000;
   text-transform: uppercase;
 `;
 
@@ -32,5 +33,6 @@ export const Title = styled.span`
 `;
 
 export const SubTitle = styled.span`
-  margin: 0 4px;
+  margin: 4px;
+  color: #fff;
 `;
