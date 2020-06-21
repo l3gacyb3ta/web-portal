@@ -13,6 +13,10 @@ export const CCLogo = styled.div`
   color: red;
 `;
 
-export const Title = styled.h4``;
+export const Title = styled.h4`
+  color: #f00000;
+`;
 
-export const SubTitle = styled.p``;
+export const SubTitle = styled.p`
+  font-size: 7pt;
+`;
