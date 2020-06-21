@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 export const Title = styled.h2`
   color: brown;
   font-size: 24pt;
+  margin: 5px;
 `;
 
 export const SubTitle = styled.h3`
